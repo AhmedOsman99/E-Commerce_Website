@@ -1,0 +1,16 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "productName": "BMW",
+            "price": "200K",
+            "quantity": 5
+        },
+        {
+            "id": 2,
+            "productName": "Mercedes",
+            "price": "500k",
+            "quantity": "10"
+        }
+    ]
+}
