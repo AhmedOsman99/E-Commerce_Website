@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Button, Col, Form, Row } from 'react-bootstrap'
 import { useNavigate, useParams } from 'react-router-dom';
 
-function ProductForm() {
+export function ProductForm() {
     let { id } = useParams()
 
     let navigate = useNavigate()
@@ -104,4 +104,3 @@ function ProductForm() {
     )
 }
 
-export default ProductForm;

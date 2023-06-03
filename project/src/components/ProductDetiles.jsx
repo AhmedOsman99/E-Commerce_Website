@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { NavLink, useParams } from 'react-router-dom'
 
-function ProductDetails() {
+export function ProductDetails() {
     let { id } = useParams();
     const [product, setProducts] = useState([]);
 
@@ -80,4 +80,3 @@ function ProductDetails() {
     )
 }
 
-export default ProductDetails;
