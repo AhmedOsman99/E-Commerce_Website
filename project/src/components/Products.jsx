@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import Productsitems from './Productsitems';
+import { Productsitems } from './Productsitems';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 
-function Products() {
+export function Products() {
     const [products, setProducts] = useState([]);
     const isAdmin = false;
 
@@ -45,4 +45,3 @@ function Products() {
     );
 }
 
-export default Products;

@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
-function Productsitems({ product, handleDelete, setProducts }) {
+export function Productsitems({ product, handleDelete, setProducts }) {
     const isOutOfStock = product.quantity === "0";
     const isLastOne = product.quantity === "1";
     const isAdmin = false;
@@ -50,4 +50,3 @@ function Productsitems({ product, handleDelete, setProducts }) {
     );
 }
 
-export default Productsitems;
