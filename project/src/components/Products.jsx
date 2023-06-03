@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 export function Products() {
     const [products, setProducts] = useState([]);
-    const isAdmin = false;
+    const isAdmin = true;
 
     useEffect(() => {
         axios.get('http://localhost:3005/products')
@@ -30,10 +30,10 @@ export function Products() {
 
 
     return (
-        <div className="bg-light p-5 text-center">
+        <div className="products bg-light p-5 text-center" style={{ background: 'linear-gradient(to bottom left, #000000, #7c7c7c)' }}>
             <div className="container">
                 <div className="row">
-                    {isAdmin && <NavLink to='/products/0/edit' className='btn btn-outline-primary mb-5'>
+                    {isAdmin && <NavLink to='/products/0/edit' className='btn btn-primary mb-5'>
                         Add New Product
                     </NavLink>}
                     {products.map(product => (
