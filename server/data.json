@@ -47,5 +47,13 @@
             "image": "https://m.media-amazon.com/images/I/61nB9EjUQtL._AC_UL600_FMwebp_QL65_.jpg",
             "id": 6
         }
+    ],
+    "users": [
+        {
+            "id": 1,
+            "name": "sabry",
+            "email": "sabry219@gmail.com",
+            "passwords": "01124120933",
+        }
     ]
 }
