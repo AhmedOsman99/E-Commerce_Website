@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 export function Productsitems({ product, handleDelete, setProducts }) {
     const isOutOfStock = product.quantity === "0";
     const isLastOne = product.quantity === "1";
-    const isAdmin = false;
+    const isAdmin = true;
 
     const handleDeleteClick = () => {
         handleDelete(product.id);
