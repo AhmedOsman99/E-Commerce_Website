@@ -7,9 +7,12 @@ import { Mynav } from './components/Mynav';
 import Products from './components/Products';
 import ProductDetiles from './components/ProductDetiles';
 
+import Products from './components/Products';
+import ProductDetiles from './components/ProductDetiles';
+import { Navbar } from 'react-bootstrap';
 import ProductForm from './components/ProductForm';
 
-function App() {
+export function App() {
   return (
     <div>
       <Mynav/>
@@ -26,4 +29,4 @@ function App() {
     </div>
 
   )}
-  export default App;
+  
