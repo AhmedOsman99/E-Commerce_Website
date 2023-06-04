@@ -41,10 +41,10 @@ export function Home() {
       </div>
       <div className="img">
         <div className="inner-img pb-2">
-            <img src={image11} alt="" srcset="" />
-            <img className="img2" src={image2} alt="" srcset="" />
-            <img className="img3" src={image3} alt="" srcset="" />
-            <img className="img4" src={image4} alt="" srcset="" />
+          <img src={image11} alt="" srcset="" />
+          <img className="img2" src={image2} alt="" srcset="" />
+          <img className="img3" src={image3} alt="" srcset="" />
+          <img className="img4" src={image4} alt="" srcset="" />
           <div className="text">
             <div className="inner-text">
               <span className="reasons">SOME REASONS</span>
@@ -68,9 +68,9 @@ export function Home() {
             <div>
               <p className="spons-text">SPONSERED BY</p>
               <div className="sponsors">
-              <img src={nb} alt="" srcset="" />
-              <img src={nike} alt="" srcset="" />
-              <img src={adidas} alt="" srcset="" />
+                <img src={nb} alt="" srcset="" />
+                <img src={nike} alt="" srcset="" />
+                <img src={adidas} alt="" srcset="" />
               </div>
             </div>
           </div>
