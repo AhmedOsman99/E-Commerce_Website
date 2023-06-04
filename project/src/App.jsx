@@ -6,8 +6,13 @@ import { Products } from './components/Products';
 import { ProductDetails } from './components/ProductDetiles';
 import { ProductForm } from './components/ProductForm';
 import { Login } from './components/Login';
+import { useSelector } from 'react-redux';
+import { Registeration } from './components/Registeration';
+
+
 
 function App() {
+  
   return (
 
     <div className="App" >
@@ -20,6 +25,7 @@ function App() {
         <Route path='products/:id' element={<ProductDetails />} />
         <Route path='products/:id/edit' element={<ProductForm />} />
         <Route path='login' element={<Login />} />
+        
       </Routes>
     </div >
   );
