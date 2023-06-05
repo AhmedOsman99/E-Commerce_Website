@@ -22,7 +22,7 @@ export function Mynav() {
             <Nav className="ms-auto text-light">
               <NavLink className='nav-link' to="/Home">Home</NavLink>
               <NavLink className='nav-link' to="/products">Products</NavLink>
-              <NavLink className='nav-link' to="/About us">About Us</NavLink>
+              <NavLink className='nav-link' to="/aboutus">About Us</NavLink>
               <NavLink className='nav-link' to="/Login">Login</NavLink>
               <NavLink className='nav-link' to="/MyCart">
                 <FaShoppingCart /> {cart.length}
