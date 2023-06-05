@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeFromCart, incrementQuantity, decrementQuantity, clearCart } from '../store-redux/cartSlice';
+import { removeFromCart, incrementQuantity, decrementQuantity, clearCart } from '../Redux/cartSlice';
 import { Button, Table, Image, Row, Col, Card, Container } from 'react-bootstrap';
 
 export function MyCart() {
