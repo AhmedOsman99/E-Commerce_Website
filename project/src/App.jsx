@@ -5,19 +5,25 @@ import { Mynav } from './components/Mynav';
 import { Products } from './components/Products';
 import { ProductDetails } from './components/ProductDetiles';
 import { ProductForm } from './components/ProductForm';
+import { Login } from './components/Login';
+import { useSelector } from "react-redux";
+import { Registeration } from "./components/Registeration";
 import { MyCart } from './components/MyCart';
+
 
 function App() {
   return (
     <div className="App">
       <Mynav />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/products/:id" element={<ProductDetails />} />
-        <Route path="/products/:id/edit" element={<ProductForm />} />
-        <Route path="/MyCart" element={<MyCart />} />
+        <Route path='' element={<Home />} />
+        <Route path='Home' element={<Home />} />
+        <Route path='products' element={<Products />} />
+        <Route path='products/:id' element={<ProductDetails />} />
+        <Route path='products/:id/edit' element={<ProductForm />} />
+        <Route path='login' element={<Login />} />
+        <Route path="register" element={<Registeration />} />
+        <Route path="MyCart" element={<MyCart />} />
       </Routes>
     </div>
   );

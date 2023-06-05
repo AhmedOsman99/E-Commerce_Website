@@ -7,8 +7,9 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.bundle";
 import "bootstrap-icons/font/bootstrap-icons.css"
 import { BrowserRouter } from "react-router-dom";
-import { Provider } from "react-redux";
+import { Provider } from 'react-redux';
 import { store } from './store-redux/store';
+import LoginStore from './LoginStore/reducer'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
