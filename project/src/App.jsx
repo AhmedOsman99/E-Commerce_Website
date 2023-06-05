@@ -10,6 +10,9 @@ import { useSelector } from "react-redux";
 import { Registeration } from "./components/Registeration";
 import { MyCart } from './components/MyCart';
 
+import { Aboutus } from "./components/Aboutus";
+import { Footer } from "./components/Footer";
+import { Notfound } from "./components/Notfound";
 
 function App() {
   return (
@@ -24,7 +27,12 @@ function App() {
         <Route path='login' element={<Login />} />
         <Route path="register" element={<Registeration />} />
         <Route path="MyCart" element={<MyCart />} />
+        <Route path="aboutus" element={<Aboutus />} />
+        <Route path="*" element={<Notfound />} />
+
       </Routes>
+
+      <Footer/>
     </div>
   );
 }
