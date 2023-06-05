@@ -3,6 +3,10 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Button, Form } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { login } from "../Redux/userSlice";
+import './login.css'
+
 
 export function Login() {
   const [userName, setUsername] = useState("");
@@ -10,6 +14,7 @@ export function Login() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [users, setUsers] = useState([]);
   const dispatch = useDispatch();
+  let navigate = useNavigate();
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -26,7 +31,7 @@ export function Login() {
     fetchUsers();
   }, []);
 
-  const login = (event) => {
+  const userLogin = (event) => {
     // event.preventDefault();
 
     const foundUser = users.find(
@@ -34,25 +39,17 @@ export function Login() {
     );
 
     if (foundUser) {
-      dispatch({
-        type: "login",
-        payload: foundUser,
-      });
-      setLoggedIn(true);
-      alert("You have logged in");
+      dispatch(login(foundUser));
+      navigate('/products')
     } else {
       alert("Please register, you don't have an account.");
     }
   };
 
-  const logout = () => {
-    setLoggedIn(false);
-  };
-
   return (
-    <div>
+    <div className="main">
       <div className="d-flex justify-content-center align-items-center h-100 p-3 m-3 mt-5">
-        <Form className="form">
+        <Form className="form ">
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>User Name</Form.Label>
             <Form.Control
@@ -84,7 +81,7 @@ export function Login() {
             type="submit"
             value={loggedIn ? `Logout ${userName}` : "Login"}
             className="age w-100 mt-3"
-            onClick={login}
+            onClick={userLogin}
           >
             Login
           </Button>

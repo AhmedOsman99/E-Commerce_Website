@@ -1,0 +1,14 @@
+.main{
+    
+    padding: 1rem;
+    border-radius: 1rem;
+    width: 50%;
+    
+    margin: auto;
+    margin-top: 2%;
+    font-weight: bold;
+    /* color: #ffffff; */
+    background: linear-gradient(to  right, #1a1919, #ccc9c9)
+    
+    
+}

@@ -51,21 +51,30 @@
   "users": [
     {
       "id": 1,
+      "admin": true,
       "userName": "sabry",
       "email": "sabry219@gmail.com",
-      "passwords": "01124120933"
+      "passwords": "123456"
     },
     {
       "userName": "ahmed",
+      "admin": true,
       "email": "ahmedosman5357@gmail.com",
-      "password": "ahmedd",
+      "password": "123456",
       "id": 2
     },
     {
       "userName": "eslam",
+      "admin": true,
       "email": "eslammm@gmail.com",
-      "password": "eslammmm",
+      "password": "123456",
       "id": 3
+    },
+    {
+      "userName": "omar",
+      "email": "omar@gmail.com",
+      "password": "123456",
+      "id": 4
     }
   ]
 }
