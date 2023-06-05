@@ -3,14 +3,15 @@ import { Productsitems } from './Productsitems';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getProducts } from '../store-redux/productsSlice';
+import { getProducts } from '../Redux/productsSlice';
 
 export function Products() {
     // const [products, setProducts] = useState([]);
-    const isAdmin = true;
-
-
+    
+    
     const products = useSelector((state) => state.products);
+    const user =useSelector((state)=>state.users.user)
+    const isAdmin = user?.admin;
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -47,7 +48,7 @@ export function Products() {
                         Add New Product
                     </NavLink>}
                     {products.map(product => (
-                        <Productsitems key={product.id} product={product} dispatch={dispatch} />
+                        <Productsitems key={product.id} product={product} dispatch={dispatch} isAdmin={isAdmin} />
                     ))}
                 </div>
             </div>

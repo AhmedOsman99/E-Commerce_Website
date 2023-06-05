@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import {login} from './../Redux/userSlice'
 
 export function Registeration() {
   let navigate = useNavigate();
+
+  const dispatch = useDispatch();
 
   let [formValues, setFormValues] = useState({
     userName: "",
@@ -55,8 +59,9 @@ export function Registeration() {
     event.preventDefault();
 
     if (validateForm()) {
-      axios.post("http://localhost:3005/users", rest).then(() => {
-        navigate("/login");
+      axios.post("http://localhost:3005/users", rest).then((res) => {
+        dispatch(login(res.data))
+        navigate("/home");
       });
     }
   };
