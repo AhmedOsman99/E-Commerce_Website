@@ -8,16 +8,16 @@ import "bootstrap/dist/js/bootstrap.bundle";
 import "bootstrap-icons/font/bootstrap-icons.css"
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from 'react-redux';
+import { store } from './store-redux/store';
 import LoginStore from './LoginStore/reducer'
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-  <Provider store={LoginStore}>
+    <Provider store={store}>
 
-    <App />
-  </Provider>
+      <App />
+    </Provider>
   </BrowserRouter>
 );
 
