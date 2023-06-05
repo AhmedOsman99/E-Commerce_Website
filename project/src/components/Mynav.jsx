@@ -3,8 +3,10 @@ import { Container, Nav, Navbar } from 'react-bootstrap'
 import logo from '../Images/logo.png'
 import './mynav.css'
 import { NavLink } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 
 export function Mynav() {
+  let dispatch=useDispatch()
   return (
     <div>
       <div>
