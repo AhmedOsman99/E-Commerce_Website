@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {login} from './../Redux/userSlice'
+import { login } from "./../Redux/userSlice";
 
 export function Registeration() {
   let navigate = useNavigate();
@@ -60,14 +60,19 @@ export function Registeration() {
 
     if (validateForm()) {
       axios.post("http://localhost:3005/users", rest).then((res) => {
-        dispatch(login(res.data))
+        dispatch(login(res.data));
         navigate("/home");
       });
     }
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-center h-100 p-3 m-3 mt-5">
+    <div
+      className="d-flex justify-content-center align-items-center h-100 p-3 m-3 mt-5"
+      style={{
+        minHeight: "calc(100vh - 226px)",
+      }}
+    >
       <form className="register form">
         <div className="row">
           <div className="col">
