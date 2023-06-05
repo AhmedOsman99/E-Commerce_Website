@@ -2,31 +2,41 @@ import React, { useEffect, useState } from 'react';
 import { Productsitems } from './Productsitems';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getProducts } from '../store-redux/productsSlice';
 
 export function Products() {
-    const [products, setProducts] = useState([]);
+    // const [products, setProducts] = useState([]);
     const isAdmin = true;
 
-    useEffect(() => {
-        axios.get('http://localhost:3005/products')
-            .then(response => {
-                setProducts(response.data);
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    }, []);
 
-    const handleDelete = (id) => {
-        axios.delete(`http://localhost:3005/products/${id}`)
-            .then(response => {
-                console.log(response.data);
-                setProducts(prevProducts => prevProducts.filter(product => product.id !== id));
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    };
+    const products = useSelector((state) => state.products);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getProducts());
+    }, [dispatch]);
+
+    // useEffect(() => {
+    //     axios.get('http://localhost:3005/products')
+    //         .then(response => {
+    //             setProducts(response.data);
+    //         })
+    //         .catch(error => {
+    //             console.error(error);
+    //         });
+    // }, []);
+
+    // const handleDelete = (id) => {
+    //     axios.delete(`http://localhost:3005/products/${id}`)
+    //         .then(response => {
+    //             console.log(response.data);
+    //             setProducts(prevProducts => prevProducts.filter(product => product.id !== id));
+    //         })
+    //         .catch(error => {
+    //             console.error(error);
+    //         });
+    // };
 
 
     return (
@@ -37,7 +47,7 @@ export function Products() {
                         Add New Product
                     </NavLink>}
                     {products.map(product => (
-                        <Productsitems key={product.id} product={product} handleDelete={handleDelete} setProducts={setProducts} />
+                        <Productsitems key={product.id} product={product} dispatch={dispatch} />
                     ))}
                 </div>
             </div>
@@ -45,3 +55,4 @@ export function Products() {
     );
 }
 
+// handleDelete={handleDelete} setProducts={setProducts}
