@@ -1,45 +1,111 @@
-import axios from 'axios';
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { Registeration } from './Registeration';
+import axios from "axios";
+import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { Button, Form } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 
 export function Login() {
-  let [username, setUsername] = useState('');
-  let [password, setPassword] = useState('');
-  let [loggedIn, setLoggedIn] = useState(false);
-  let dispatch = useDispatch();
+  const [userName, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [users, setUsers] = useState([]);
+  const dispatch = useDispatch();
 
-  let login = async () => {
-    try {
-      const response = await axios.get('http://localhost:3005/users');
-      const foundUser = response.data.find((user) => user.username === username && user.password === password);
-      if (foundUser) {
-        dispatch({
-          type: 'login',
-          payload: foundUser,
-        });
-        setLoggedIn(true);
-        alert('You have logged in');
-      } else {
-        alert("Please register, you don't have an account.");
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await axios.get("http://localhost:3005/users");
+        setUsers(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.log(error);
+        alert("An error occurred while fetching user data.");
       }
-    } catch (error) {
-      console.log(error);
+    };
+
+    fetchUsers();
+  }, []);
+
+  const login = (event) => {
+    // event.preventDefault();
+
+    const foundUser = users.find(
+      (user) => user.userName === userName && user.password === password
+    );
+
+    if (foundUser) {
+      dispatch({
+        type: "login",
+        payload: foundUser,
+      });
+      setLoggedIn(true);
+      alert("You have logged in");
+    } else {
+      alert("Please register, you don't have an account.");
     }
   };
 
-  let logout = () => {
+  const logout = () => {
     setLoggedIn(false);
   };
 
   return (
     <div>
-      <Registeration/>
-      <form className="login">
-        <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        <input type="button" value={loggedIn ? `Logout ${username}` : 'Login'} onClick={loggedIn ? logout : login} />
-      </form>
+      <div className="d-flex justify-content-center align-items-center h-100 p-3 m-3 mt-5">
+        <Form className="form">
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>User Name</Form.Label>
+            <Form.Control
+              onChange={(e) => setUsername(e.target.value)}
+              value={userName}
+              type="text"
+              placeholder="User Name"
+              className="userName w-100"
+              autoComplete="off"
+            />
+            <Form.Text className="text-danger"></Form.Text>
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              type="password"
+              placeholder="Password"
+              className="w-100"
+            />
+
+            <Form.Text className="text-danger"></Form.Text>
+          </Form.Group>
+
+          <Button
+            variant="dark"
+            type="submit"
+            value={loggedIn ? `Logout ${userName}` : "Login"}
+            className="age w-100 mt-3"
+            onClick={login}
+          >
+            Login
+          </Button>
+        </Form>
+      </div>
+      <p style={{ textAlign: "center" }}>Create New User?</p>
+      <NavLink className="nav-link" to="/register">
+        <Button
+          variant="secondary"
+          type="submit"
+          value={loggedIn ? `Logout ${userName}` : "Login"}
+          style={{
+            textAlign: "center",
+            margin: "auto",
+            display: "block",
+            width: "244px",
+          }}
+        >
+          Register
+        </Button>
+      </NavLink>
     </div>
   );
 }

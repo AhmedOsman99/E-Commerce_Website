@@ -51,37 +51,21 @@
   "users": [
     {
       "id": 1,
-      "name": "sabry",
+      "userName": "sabry",
       "email": "sabry219@gmail.com",
       "passwords": "01124120933"
     },
     {
-      "name": "eslam",
-      "username": "eslamhassan",
-      "password": "1234",
-      "confirmPassword": "1234",
+      "userName": "ahmed",
+      "email": "ahmedosman5357@gmail.com",
+      "password": "ahmedd",
       "id": 2
     },
     {
-      "name": "eslam",
-      "username": "eslamhassan",
-      "password": "1234",
-      "confirmPassword": "1234",
+      "userName": "eslam",
+      "email": "eslammm@gmail.com",
+      "password": "eslammmm",
       "id": 3
-    },
-    {
-      "name": "boda",
-      "username": "abdelrahman",
-      "password": "123",
-      "confirmPassword": "123",
-      "id": 4
-    },
-    {
-      "name": "ahmed",
-      "username": "ahmedotham",
-      "password": "123",
-      "confirmPassword": "123",
-      "id": 5
     }
   ]
 }
