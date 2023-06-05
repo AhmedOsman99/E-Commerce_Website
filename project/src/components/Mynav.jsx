@@ -47,7 +47,7 @@ export function Mynav() {
               <NavLink
                 className="nav-link"
                 style={{ fontWeight: "bold" }}
-                to="/About us"
+                to="/aboutus"
               >
                 About Us
               </NavLink>
