@@ -47,7 +47,7 @@ export function Mynav() {
               <NavLink
                 className="nav-link"
                 style={{ fontWeight: "bold" }}
-                to="/aboutus"
+                to="/Aboutus"
               >
                 About Us
               </NavLink>
@@ -74,7 +74,7 @@ export function Mynav() {
               )}
               {user && <span className="p-2">Hello: {user.userName}</span>}
               <NavLink className="nav-link" to="/MyCart">
-                {user&&<FaShoppingCart />} {user&&(cart.length)}
+                {user && <FaShoppingCart />} {user && (cart.length)}
               </NavLink>
             </Nav>
           </Container>
