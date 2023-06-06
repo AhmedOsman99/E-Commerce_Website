@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Productsitems } from './Productsitems';
-import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from '../Redux/productsSlice';
 
 export function Products() {
     // const [products, setProducts] = useState([]);
-    
-    
+
+
     const products = useSelector((state) => state.products);
-    const user =useSelector((state)=>state.users.user)
+    const user = useSelector((state) => state.users.user)
     const isAdmin = user?.admin;
     const dispatch = useDispatch();
 

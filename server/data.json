@@ -30,22 +30,6 @@
       "description": "",
       "price": "500",
       "quantity": "0"
-    },
-    {
-      "id": 5,
-      "image": "https://m.media-amazon.com/images/I/71ckAznh5ZL._AC_UL600_QL65_.jpg",
-      "productName": "Whey Protein",
-      "description": "",
-      "price": "500",
-      "quantity": "0"
-    },
-    {
-      "productName": "Optimum Nutrition",
-      "description": "Optimum Nutrition (ON) Amino Energy - Pre Workout with Green Tea, BCAA, Amino Acids, Keto Friendly, Green Coffee Extract, Energy Powder - Blue Raspberry, 30 Servings ",
-      "price": "100",
-      "quantity": "10",
-      "image": "https://m.media-amazon.com/images/I/61nB9EjUQtL._AC_UL600_FMwebp_QL65_.jpg",
-      "id": 6
     }
   ],
   "users": [
