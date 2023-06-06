@@ -51,7 +51,7 @@ export function ProductForm() {
     }, [id])
 
     return (
-        <div className='container mt-5'>
+        <div className='container mt-5 p-5'>
             <Row className='justify-content-center'>
                 <Col md={8}>
                     <Form onSubmit={handeleFormAction}>
