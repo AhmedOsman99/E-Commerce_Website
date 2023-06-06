@@ -38,12 +38,12 @@ export function Productsitems({ product, isAdmin }) {
                         <NavLink to={`/products/${product.id}`}>
                             <i className="i-animation fs-2 text-dark position-absolute top-0 end-0 px-2 py-0 m-0 bi bi-eye-fill"></i>
                         </NavLink>
-                        {+product.quantity === 1 && (
+                        {availableQuantity === 1 && (
                             <span className="badge bg-warning position-absolute top-0 start-0 px-2 py-1 m-1 rounded-pill">
                                 Last one left!
                             </span>
                         )}
-                        {+product.quantity === 0 && (
+                        {availableQuantity === 0 && (
                             <span className="badge bg-danger position-absolute top-1 start-0 px-2 py-1 m-1 rounded-pill">
                                 Out Of Stock
                             </span>
