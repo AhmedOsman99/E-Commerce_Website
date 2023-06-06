@@ -4,7 +4,15 @@ import aboutUsImage from "../Images/aboutus2.webp";
 
 export function Aboutus() {
   return (
-    <div className="about-us">
+    <div
+      className="about-us"
+      style={{
+        minHeight: "calc(100vh - 163px)",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
+      }}
+    >
       <Container className="about-us-content p-5 bg-light shadow mt-4 mb-4">
         <Row>
           <Col xs={12} md={6}>
@@ -12,8 +20,7 @@ export function Aboutus() {
               <img
                 src={aboutUsImage}
                 alt="About Us"
-                className="about-us-image"
-                style={{ maxWidth: "100%", height: "auto" }}
+                className="about-us-image img-fluid"
               />
             </div>
           </Col>

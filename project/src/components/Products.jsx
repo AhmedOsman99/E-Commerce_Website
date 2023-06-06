@@ -7,9 +7,8 @@ import { getProducts } from '../Redux/productsSlice';
 export function Products() {
     // const [products, setProducts] = useState([]);
 
-
     const products = useSelector((state) => state.products);
-    const user = useSelector((state) => state.users.user)
+    const user = useSelector((state) => state.users.user);
     const isAdmin = user?.admin;
     const dispatch = useDispatch();
 
@@ -38,16 +37,27 @@ export function Products() {
     //         });
     // };
 
-
     return (
-        <div className="products bg-light p-5 text-center" style={{ background: 'linear-gradient(to bottom left, #000000, #7c7c7c)' }}>
+        <div
+            className="products bg-light p-5 text-center"
+            style={{
+                background: "linear-gradient(to bottom left, #000000, #7c7c7c)",
+            }}
+        >
             <div className="container">
                 <div className="row">
-                    {isAdmin && <NavLink to='/products/0/edit' className='btn btn-primary mb-5'>
-                        Add New Product
-                    </NavLink>}
-                    {products.map(product => (
-                        <Productsitems key={product.id} product={product} dispatch={dispatch} isAdmin={isAdmin} />
+                    {isAdmin && (
+                        <NavLink to="/products/0/edit" className="btn btn-primary mb-5">
+                            Add New Product
+                        </NavLink>
+                    )}
+                    {products.map((product) => (
+                        <Productsitems
+                            key={product.id}
+                            product={product}
+                            dispatch={dispatch}
+                            isAdmin={isAdmin}
+                        />
                     ))}
                 </div>
             </div>
