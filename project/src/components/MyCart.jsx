@@ -30,6 +30,7 @@ export function MyCart() {
                                     </thead>
                                     <tbody>
                                         {cartItems.map(item => (
+
                                             <tr key={item.id}>
                                                 <td className="d-none d-md-table-cell">
                                                     <Image

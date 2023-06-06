@@ -1,20 +1,33 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { NavLink, useParams } from 'react-router-dom'
+import { addToCart, updateCartItemQuantity } from "../Redux/cartSlice";
+import { useDispatch, useSelector } from 'react-redux';
 
 export function ProductDetails() {
     let { id } = useParams();
-    const [product, setProducts] = useState([]);
+    // const [product, setProducts] = useState([]);
 
-    useEffect(() => {
-        axios.get(`http://localhost:3005/products/${id}`)
-            .then(response => {
-                setProducts(response.data);
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    }, []);
+    // useEffect(() => {
+    //     axios.get(`http://localhost:3005/products/${id}`)
+    //         .then(response => {
+    //             setProducts(response.data);
+    //         })
+    //         .catch(error => {
+    //             console.error(error);
+    //         });
+    // }, []);
+
+    const product = useSelector((state) =>
+        state.products.find((product) => product.id === +id)
+    );
+
+    const cart = useSelector((state) => state.cart);
+    const dispatch = useDispatch();
+
+    const productInCart = cart.find((p) => p.id === product.id);
+    const availableQuantity = product.quantity - (productInCart ? productInCart.quantity : 0);
+    const disabled = availableQuantity === 0;
 
     const [quantity, setQuantity] = useState(1);
 
@@ -23,7 +36,12 @@ export function ProductDetails() {
     };
 
     const handleAddToCart = () => {
-        // Add code to add the product to the cart
+        const cartItem = cart.find((item) => item.id === +id);
+        if (cartItem) {
+            dispatch(updateCartItemQuantity({ id: +id, quantity: +cartItem.quantity + +quantity }));
+        } else {
+            dispatch(addToCart({ ...product, quantity: +quantity }));
+        }
     };
 
     return (
@@ -59,11 +77,11 @@ export function ProductDetails() {
                             <div className="form-group row my-4   " style={{ paddingLeft: '-10%', }}>
                                 <div className="col-md-9 offset-md-3">
                                     <button
-                                        className="btn btn-primary"
                                         onClick={handleAddToCart}
-                                        disabled={quantity > +product.quantity || +product.quantity == 0}
+                                        className="btn btn-primary"
+                                        disabled={disabled}
                                     >
-                                        Add to Cart
+                                        {disabled ? "Out of stock" : "Add to Cart"}
                                     </button>
                                 </div>
                             </div>
